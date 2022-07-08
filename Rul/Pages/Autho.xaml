@@ -1,0 +1,33 @@
+﻿<Page x:Class="Rul.Pages.Autho"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rul.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Autho">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="260"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="260"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Логин:"/>
+            <TextBox Name="txtLogin"/>
+            <TextBlock Text="Пароль:"/>
+            <TextBox Name="txtPassword"/>
+            <TextBlock Name="textBlockCaptcha"/>
+            <TextBox Name="txtCaptcha"/>
+            
+            <StackPanel Orientation="Horizontal" Height="80" HorizontalAlignment="Center">
+                <Button Name="btnEnterGuest" Margin="5, 15, 5, 5" Content="Войти как гость" Click="btnEnterGuest_Click"/>
+                <Button Name="btnEnter" Margin="5, 15, 5, 5" Content="Войти" Click="btnEnter_Click"/>
+            </StackPanel>
+            
+        </StackPanel>
+    </Grid>
+</Page>
