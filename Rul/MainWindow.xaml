@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rul"
         mc:Ignorable="d"
-        Title="ООО Руль" Height="500" Width="800" Icon="/icon.ico" WindowStartupLocation="CenterScreen">
+        Title="ООО Руль" Height="500" Width="800" Icon="/icon.ico" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>

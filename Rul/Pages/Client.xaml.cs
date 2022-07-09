@@ -27,10 +27,10 @@ namespace Rul.Pages
         public Client(User currentUser)
         {
             InitializeComponent();
-            DataContext = this;
-            var product = RulEntities.GetContext().Product.ToList();
-            LViewProduct.ItemsSource = product;
-            txtxAllAmount.Text = product.Count().ToString();
+
+            var product = RulEntities.GetContext().Product.ToList(); //Обращаемся к таблице "Товары"
+            LViewProduct.ItemsSource = product; //Передаем таблицу в лист
+            txtxAllAmount.Text = product.Count().ToString(); 
 
             user = currentUser;
             if (user != null)
@@ -97,7 +97,7 @@ namespace Rul.Pages
         List<Product> orderProducts = new List<Product>();
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
         {
-            orderProducts.Add(LViewProduct.SelectedItems as Product);
+            orderProducts.Add(LViewProduct.SelectedItem as Product);
             
             if(orderProducts.Count > 0)
             {

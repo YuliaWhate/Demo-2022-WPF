@@ -25,6 +25,10 @@ namespace Rul.Windows
             InitializeComponent();
 
             lViewOrder.ItemsSource = products;
+            cmbPickupPoint.ItemsSource = RulEntities.GetContext().PickupPoint.Select(p => p.Address).ToList();
+
+            var discount = products.Select(p => p.ProductCost * p.ProductDiscountAmount).ToList();
+            txtTotalCost.Text = discount.Sum().ToString();
 
             if (user != null)
                 txtUser.Text = user.UserSurname.ToString() + user.UserName.ToString() + " " + user.UserPatronymic.ToString();
