@@ -52,7 +52,7 @@
             <ComboBox Name="cmbPickupPoint"/>
             <TextBlock Text="Клиент:"/>
             <TextBox x:Name="txtUser"/>
-            <TextBlock Text="Стоимость:"/>
+            <TextBlock Text="Итого:"/>
             <TextBlock x:Name="txtTotalCost" Text="{Binding Total}"/>
             <Button x:Name="btnOrderEnter" Grid.Row="1" HorizontalAlignment="Center" Content="Оформить заказ" Width="200"/>
         </StackPanel>

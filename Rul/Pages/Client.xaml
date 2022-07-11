@@ -29,9 +29,7 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" HorizontalAlignment="Right">
             <TextBlock Text="Пользователь:"/>
-            <TextBlock x:Name="txtSurname"/>
-            <TextBlock x:Name="txtName"/>
-            <TextBlock x:Name="txtxPatronymic"/>
+            <TextBlock x:Name="txtFullname"/>
         </StackPanel>
 
         <TextBox Name="txtSearch" Grid.Row="1" Grid.Column="0" SelectionChanged="txtSearch_SelectionChanged" VerticalAlignment="Center" Margin="5, 0, 5, 0"/>

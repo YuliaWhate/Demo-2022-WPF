@@ -28,17 +28,14 @@ namespace Rul.Pages
         {
             InitializeComponent();
 
+            DataContext = this;
             var product = RulEntities.GetContext().Product.ToList(); //Обращаемся к таблице "Товары"
             LViewProduct.ItemsSource = product; //Передаем таблицу в лист
             txtxAllAmount.Text = product.Count().ToString(); 
 
             user = currentUser;
             if (user != null)
-            {
-                txtSurname.Text = user.UserSurname.ToString();
-                txtName.Text = user.UserName.ToString();
-                txtxPatronymic.Text = user.UserPatronymic.ToString();
-            }
+                txtFullname.Text = user.UserSurname.ToString() + user.UserName.ToString() + " " + user.UserPatronymic.ToString();
 
             UpdateData();
         }
