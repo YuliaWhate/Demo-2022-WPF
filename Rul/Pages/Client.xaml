@@ -38,7 +38,7 @@
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock x:Name="txtResultAmount"/>
             <TextBlock Text="из"/>
-            <TextBlock x:Name="txtxAllAmount"/>
+            <TextBlock x:Name="txtAllAmount"/>
         </StackPanel>
 
 
@@ -64,7 +64,7 @@
                                 <TextBlock Text="{Binding ProductName}" FontWeight="Bold"/>
                                 <TextBlock Text="{Binding ProductDescription}"/>
                                 <TextBlock Text="{Binding ProductManufacturer}"/>
-                                <TextBlock Text="{Binding ProductCost}"/>
+                                <TextBlock x:Name="txtCost" Text="{Binding ProductCost}"/>
                             </StackPanel>
 
                             <TextBlock Grid.Column="2" Text="{Binding ProductDiscountAmount, StringFormat='\{0\} %'}" VerticalAlignment="Center"/>

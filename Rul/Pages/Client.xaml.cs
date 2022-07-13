@@ -31,12 +31,12 @@ namespace Rul.Pages
             DataContext = this;
             var product = RulEntities.GetContext().Product.ToList(); //Обращаемся к таблице "Товары"
             LViewProduct.ItemsSource = product; //Передаем таблицу в лист
-            txtxAllAmount.Text = product.Count().ToString(); 
+
+            txtAllAmount.Text = product.Count().ToString();
 
             user = currentUser;
-            if (user != null)
-                txtFullname.Text = user.UserSurname.ToString() + user.UserName.ToString() + " " + user.UserPatronymic.ToString();
 
+            User();
             UpdateData();
         }
 
@@ -54,6 +54,14 @@ namespace Rul.Pages
             "10%-14,99%",
             "15% и более"
         };
+
+        private void User()
+        {
+            if (user != null)
+                txtFullname.Text = user.UserSurname.ToString() + user.UserName.ToString() + " " + user.UserPatronymic.ToString();
+            else
+                txtFullname.Text = "Гость";
+        }
 
         private void UpdateData()
         {

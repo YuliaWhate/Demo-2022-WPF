@@ -41,6 +41,8 @@
                                 <TextBlock Text="{Binding ProductManufacturer}"/>
                                 <TextBlock Text="{Binding ProductCost}"/>
                             </StackPanel>
+
+                            <TextBlock Grid.Column="2" Text="{Binding ProductDiscountAmount, StringFormat='\{0\} %'}" Margin="0 15 0 0"/>
                         </Grid>
                     </Border>
                 </DataTemplate>
