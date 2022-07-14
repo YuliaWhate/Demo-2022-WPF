@@ -29,6 +29,7 @@ namespace Rul.Pages
             InitializeComponent();
 
             DataContext = this;
+
             var product = RulEntities.GetContext().Product.ToList(); //Обращаемся к таблице "Товары"
             LViewProduct.ItemsSource = product; //Передаем таблицу в лист
 

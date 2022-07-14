@@ -64,10 +64,13 @@
                                 <TextBlock Text="{Binding ProductName}" FontWeight="Bold"/>
                                 <TextBlock Text="{Binding ProductDescription}"/>
                                 <TextBlock Text="{Binding ProductManufacturer}"/>
-                                <TextBlock x:Name="txtCost" Text="{Binding ProductCost}"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding ProductCost}" TextDecorations="Strikethrough"/>
+                                    <TextBlock Text="{Binding CostWithDiscount, StringFormat='\{0} рублей'}"/>
+                                </StackPanel>
                             </StackPanel>
 
-                            <TextBlock Grid.Column="2" Text="{Binding ProductDiscountAmount, StringFormat='\{0\} %'}" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Column="2" Text="{Binding ProductDiscountAmount, StringFormat='\{0} %'}" VerticalAlignment="Center"/>
                         </Grid>
                     </Border>
                 </DataTemplate>

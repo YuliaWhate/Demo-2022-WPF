@@ -42,7 +42,7 @@
                                 <TextBlock Text="{Binding ProductCost}"/>
                             </StackPanel>
 
-                            <TextBlock Grid.Column="2" Text="{Binding ProductDiscountAmount, StringFormat='\{0\} %'}" Margin="0 15 0 0"/>
+                            <TextBlock Grid.Column="2" Text="{Binding ProductDiscountAmount, StringFormat='\{0} %'}" Margin="0 15 0 0"/>
                         </Grid>
                     </Border>
                 </DataTemplate>
@@ -55,7 +55,7 @@
             <TextBlock Text="Клиент:"/>
             <TextBox x:Name="txtUser"/>
             <TextBlock Text="Итого:"/>
-            <TextBlock x:Name="txtTotalCost" Text="{Binding Total}"/>
+            <TextBlock Text="{Binding Total, StringFormat='\{0} рублей'}"/>
             <Button x:Name="btnOrderEnter" Grid.Row="1" HorizontalAlignment="Center" Content="Оформить заказ" Width="200"/>
         </StackPanel>
         
