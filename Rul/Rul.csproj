@@ -181,7 +181,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="Windows\icon.ico" />
     <Resource Include="Resources\picture.png" />
     <Resource Include="Resources\K830R4.jpg" />
     <Resource Include="Resources\D374E4.jpeg" />

@@ -20,14 +20,15 @@ namespace Rul.Windows
     /// </summary>
     public partial class OrderWindow : Window
     {
-        List<Product> product = new List<Product>();
+        Product product = new Product();
+        List<Product> productList = new List<Product>();
         public OrderWindow(List<Product> products, User user)
         {
             InitializeComponent();
 
             DataContext = this;
-            product = products;
-            lViewOrder.ItemsSource = product;
+            productList = products;
+            lViewOrder.ItemsSource = productList;
             cmbPickupPoint.ItemsSource = RulEntities.GetContext().PickupPoint.Select(p => p.Address).ToList();
 
             if (user != null)
@@ -37,9 +38,14 @@ namespace Rul.Windows
         {
             get
             {
-                var total = product.Sum(p => Convert.ToDouble(p.ProductCost) - Convert.ToDouble(p.ProductCost) * Convert.ToDouble(p.ProductDiscountAmount / 100.00));
+                var total = productList.Sum(p => Convert.ToDouble(p.ProductCost) - Convert.ToDouble(p.ProductCost) * Convert.ToDouble(p.ProductDiscountAmount / 100.00));
                 return total.ToString();
             }
+        }
+
+        private void btnOrderSave_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

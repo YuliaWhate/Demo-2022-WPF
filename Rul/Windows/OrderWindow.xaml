@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rul.Windows" xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Заказ" Height="600" Width="550" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Windows/icon.ico">
+        Title="Заказ" Height="600" Width="550" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/icon.ico">
     <Window.Resources>
         <sys:String x:Key="defaultImage">
             pack://application:,,,/Resources/picture.png
@@ -56,7 +56,7 @@
             <TextBox x:Name="txtUser"/>
             <TextBlock Text="Итого:"/>
             <TextBlock Text="{Binding Total, StringFormat='\{0} рублей'}"/>
-            <Button x:Name="btnOrderEnter" Grid.Row="1" HorizontalAlignment="Center" Content="Оформить заказ" Width="200"/>
+            <Button x:Name="btnOrderSave" Grid.Row="1" HorizontalAlignment="Center" Content="Оформить заказ" Width="200" Click="btnOrderSave_Click"/>
         </StackPanel>
         
     </Grid>
