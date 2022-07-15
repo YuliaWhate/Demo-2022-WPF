@@ -1,0 +1,62 @@
+﻿<Page x:Class="Rul.Pages.OrderPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rul.Pages" xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d"
+        Title="OrderPage" Height="600" Width="550">
+    <Page.Resources>
+        <sys:String x:Key="defaultImage">
+            pack://application:,,,/Resources/picture.png
+        </sys:String>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="250"/>
+        </Grid.RowDefinitions>
+
+        <ListView x:Name="lViewOrder" d:ItemsSource="{d:SampleData ItemCount=1}">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="50"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Height="90" Width="100" Margin="5" Grid.Column="0" Stretch="Uniform" Source="{Binding ImgPath, FallbackValue={StaticResource defaultImage}}"/>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Text="{Binding ProductName}" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding ProductDescription}"/>
+                                <TextBlock Text="{Binding ProductManufacturer}"/>
+                                <TextBlock Text="{Binding ProductCost}"/>
+                            </StackPanel>
+
+                            <TextBlock Grid.Column="2" Text="{Binding ProductDiscountAmount, StringFormat='\{0} %'}" Margin="0 15 0 0"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Пункт выдачи:"/>
+            <ComboBox Name="cmbPickupPoint"/>
+            <TextBlock Text="Клиент:"/>
+            <TextBox x:Name="txtUser"/>
+            <TextBlock Text="Итого:"/>
+            <TextBlock Text="{Binding Total, StringFormat='\{0} рублей'}"/>
+            <Button x:Name="btnOrderSave" Grid.Row="1" HorizontalAlignment="Center" Content="Оформить заказ" Width="200" Click="btnOrderSave_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>
