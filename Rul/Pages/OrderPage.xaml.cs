@@ -20,17 +20,23 @@ namespace Rul.Pages
     /// </summary>
     public partial class OrderPage : Page
     {
+        User user = new User();
         List<Product> productList = new List<Product>();
-        public OrderPage(List<Product> products, User user)
+        public OrderPage(List<Product> products, User currentUser)
         {
             InitializeComponent();
 
-            
             DataContext = this;
-            productList = products;
             lViewOrder.ItemsSource = productList;
             cmbPickupPoint.ItemsSource = RulEntities.GetContext().PickupPoint.Select(p => p.Address).ToList();
 
+            productList = products;
+            user = currentUser;
+            User();
+        }
+        
+        private void User()
+        {
             if (user != null)
                 txtUser.Text = user.UserSurname.ToString() + user.UserName.ToString() + " " + user.UserPatronymic.ToString();
         }

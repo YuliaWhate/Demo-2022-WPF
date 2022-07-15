@@ -1,0 +1,57 @@
+﻿<Page x:Class="Rul.Pages.OrderTicketPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rul.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="550"
+      Title="OrderTicketPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        
+       <FlowDocumentScrollViewer Grid.Row="0">
+            <FlowDocument>
+                <Paragraph TextAlignment="Center">
+                    <TextBlock Text="Дата заказа: "/>
+                    <TextBlock Text=""/>
+                </Paragraph>
+
+                <Paragraph TextAlignment="Center">
+                    <TextBlock Text="Номер заказа: "/>
+                    <TextBlock Text="{Binding OrderID}"/>
+                </Paragraph>
+
+                <Paragraph TextAlignment="Center">
+                    <TextBlock Text="Состав заказа: "/>
+                    <TextBlock Text=""/>
+                </Paragraph>
+
+                <Paragraph TextAlignment="Center">
+                    <TextBlock Text="Сумма заказа: "/>
+                    <TextBlock Text=""/>
+                </Paragraph>
+
+                <Paragraph TextAlignment="Center">
+                    <TextBlock Text="Сумма скидки: "/>
+                    <TextBlock Text=""/>
+                </Paragraph>
+
+                <Paragraph TextAlignment="Center">
+                    <TextBlock Text="Пункт выдачи: "/>
+                    <TextBlock Text="{Binding OrderPickupPoint.Address}"/>
+                </Paragraph>
+
+                <Paragraph TextAlignment="Center" FontWeight="Bold">
+                    <TextBlock Text="Код получения: " FontSize="20"/>
+                    <TextBlock Text="" FontSize="20"/>
+                </Paragraph>
+            </FlowDocument>
+        </FlowDocumentScrollViewer>
+        <Button x:Name="btnSaveDocument" Grid.Row="1" Content="Сохранить в PDF" Width="150"/>
+    </Grid>
+</Page>
