@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rul"
         mc:Ignorable="d"
-        Title="ООО Руль" Height="500" Width="800" Icon="/icon.ico" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="ООО Руль" Height="500" Width="800" Icon="/Resources/icon.ico" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -14,7 +14,7 @@
         
         <Grid Grid.Row="0" Background="#FF76E383">
             <Button Name="btnBack" HorizontalAlignment="Right" Content="Назад" Click="btnBack_Click"/>
-            <Image Width="45" Height="45" HorizontalAlignment="Left" Margin="5" Source="/logo.png"/>
+            <Image Width="45" Height="45" HorizontalAlignment="Left" Margin="5" Source="/Resources/logo.png"/>
         </Grid>
         <Frame x:Name="FrmMain" Grid.Row="1" NavigationUIVisibility="Hidden" ContentRendered="FrmMain_ContentRendered"/>
     </Grid>

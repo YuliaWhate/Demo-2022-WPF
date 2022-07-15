@@ -20,25 +20,24 @@ namespace Rul.Pages
     /// </summary>
     public partial class OrderPage : Page
     {
-        User user = new User();
         List<Product> productList = new List<Product>();
-        public OrderPage(List<Product> products, User currentUser)
+        public OrderPage(List<Product> products, User user)
         {
             InitializeComponent();
 
             DataContext = this;
+            productList = products;
             lViewOrder.ItemsSource = productList;
             cmbPickupPoint.ItemsSource = RulEntities.GetContext().PickupPoint.Select(p => p.Address).ToList();
 
-            productList = products;
-            user = currentUser;
-            User();
+
+            if (user != null)
+                txtUser.Text = user.UserSurname.ToString() + user.UserName.ToString() + " " + user.UserPatronymic.ToString();
         }
         
         private void User()
         {
-            if (user != null)
-                txtUser.Text = user.UserSurname.ToString() + user.UserName.ToString() + " " + user.UserPatronymic.ToString();
+            
         }
         public string Total
         {
@@ -51,6 +50,11 @@ namespace Rul.Pages
         private void btnOrderSave_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btnDeleteProduct_Click(object sender, RoutedEventArgs e)
+        {
+            productList.Remove(lViewOrder.SelectedItem as Product);
         }
     }
 }

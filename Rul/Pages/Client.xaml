@@ -27,6 +27,7 @@
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
+        <TextBlock x:Name="txtCountList"/>
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" HorizontalAlignment="Right">
             <TextBlock Text="Пользователь:"/>
             <TextBlock x:Name="txtFullname"/>

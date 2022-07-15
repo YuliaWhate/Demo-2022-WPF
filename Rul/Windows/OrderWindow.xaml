@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rul.Windows" xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Заказ" Height="650" Width="570" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/icon.ico">
+        Title="Заказ" Height="650" Width="570" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Resources/icon.ico">
     <Grid>
         <Frame x:Name="frmOrder" NavigationUIVisibility="Hidden"/>
     </Grid>

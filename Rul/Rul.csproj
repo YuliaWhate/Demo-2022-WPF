@@ -206,8 +206,6 @@
     <Resource Include="Resources\S037R9.jpeg" />
     <Resource Include="Resources\O393R4.jpeg" />
     <Resource Include="Resources\K849L6.jpeg" />
-    <Resource Include="logo.png" />
-    <Resource Include="icon.ico" />
     <Resource Include="Resources\icon.ico" />
   </ItemGroup>
   <ItemGroup>
