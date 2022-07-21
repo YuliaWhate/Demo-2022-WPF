@@ -43,6 +43,10 @@ namespace Rul.Pages
                 return total.ToString();
             }
         }
+        private void btnOrderSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 
         private void btnDeleteProduct_Click(object sender, RoutedEventArgs e)
         {
