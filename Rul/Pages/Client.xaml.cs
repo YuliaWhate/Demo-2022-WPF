@@ -37,7 +37,6 @@ namespace Rul.Pages
 
             user = currentUser;
 
-            txtCountList.Text = orderProducts.Count().ToString();
             User();
             UpdateData();
         }

@@ -34,11 +34,7 @@ namespace Rul.Pages
             if (user != null)
                 txtUser.Text = user.UserSurname.ToString() + user.UserName.ToString() + " " + user.UserPatronymic.ToString();
         }
-        
-        private void User()
-        {
-            
-        }
+
         public string Total
         {
             get
@@ -46,10 +42,6 @@ namespace Rul.Pages
                 var total = productList.Sum(p => Convert.ToDouble(p.ProductCost) - Convert.ToDouble(p.ProductCost) * Convert.ToDouble(p.ProductDiscountAmount / 100.00));
                 return total.ToString();
             }
-        }
-        private void btnOrderSave_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void btnDeleteProduct_Click(object sender, RoutedEventArgs e)

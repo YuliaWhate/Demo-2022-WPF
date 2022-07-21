@@ -12,31 +12,31 @@ namespace Rul.Entities
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class RulEntities : DbContext
     {
-        private static RulEntities context;
+        private static RulEntities _context;
         public RulEntities()
             : base("name=RulEntities")
         {
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
         public static RulEntities GetContext()
         {
-            if (context == null)
-                context = new RulEntities();
-            return context;
+            if( _context == null )
+                _context = new RulEntities();
+            return _context;
         }
     
         public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderProduct> OrderProduct { get; set; }
         public virtual DbSet<PickupPoint> PickupPoint { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }
