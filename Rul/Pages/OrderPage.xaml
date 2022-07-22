@@ -46,8 +46,6 @@
                                 <TextBlock Text="{Binding ProductDiscountAmount, StringFormat='\{0} %'}" Margin="0 15 0 0"/>
                                 <Button x:Name="btnDeleteProduct" Content="X" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0 15 0 0" Click="btnDeleteProduct_Click" Width="30"/>
                             </StackPanel>
-                            
-                            
                         </Grid>
                     </Border>
                 </DataTemplate>
@@ -56,7 +54,7 @@
 
         <StackPanel Grid.Row="1">
             <TextBlock Text="Пункт выдачи:"/>
-            <ComboBox Name="cmbPickupPoint"/>
+            <ComboBox Name="cmbPickupPoint" DisplayMemberPath="Address" SelectedValuePath="ID"/>
             <TextBlock Text="Клиент:"/>
             <TextBox x:Name="txtUser"/>
             <TextBlock Text="Итого:"/>
