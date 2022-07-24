@@ -1,17 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Windows.Threading;
 using Rul.Entities;
 
 namespace Rul.Pages
@@ -32,15 +23,8 @@ namespace Rul.Pages
 
             cmbPickupPoint.ItemsSource = RulEntities.GetContext().PickupPoint.ToList();          
 
-            
-
             if (user != null)
                 txtUser.Text = user.UserSurname.ToString() + user.UserName.ToString() + " " + user.UserPatronymic.ToString();
-        }
-
-        public void UpdateData(object sender, object e)
-        {
-            lViewOrder.ItemsSource = productList;
         }
 
         public string Total
@@ -55,14 +39,21 @@ namespace Rul.Pages
         {
             var productArticle = productList.Select(p => p.ProductArticleNumber).ToArray();
             Random random = new Random();
+
+            var date = DateTime.Now;
+            if(productList.Any(p => p.ProductQuantityInStock < 3))
+                date = date.AddDays(6);
+            else
+                date = date.AddDays(3);
+
             try
             {
                 Order newOrder = new Order()
                 {
                     OrderStatus = "Новый",
                     OrderDate = DateTime.Now,
-                    OrderPickupPoint = 1,
-                    OrderDeliveryDate = DateTime.Now,
+                    OrderPickupPoint = cmbPickupPoint.SelectedIndex + 1,
+                    OrderDeliveryDate = date,
                     ReceiptCode = random.Next(100, 1000),
                     ClientFullName = txtUser.Text,
                    
@@ -81,7 +72,7 @@ namespace Rul.Pages
                 }
                 
                 RulEntities.GetContext().SaveChanges();
-                MessageBox.Show("Данные успешно добавлены!");
+                MessageBox.Show("Заказ оформлен!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
                 NavigationService.Navigate(new OrderTicketPage());
             }
             catch(Exception ex)
@@ -93,11 +84,6 @@ namespace Rul.Pages
         private void btnDeleteProduct_Click(object sender, RoutedEventArgs e)
         {
             productList.Remove(lViewOrder.SelectedItem as Product);
-
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += UpdateData;
-            timer.Start();
         }
     }
 }
