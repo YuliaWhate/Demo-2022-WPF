@@ -18,7 +18,7 @@
             <FlowDocument>
                 <Paragraph TextAlignment="Center">
                     <TextBlock Text="Дата заказа: "/>
-                    <TextBlock Text=""/>
+                    <TextBlock Text="{Binding OrderDate}"/>
                 </Paragraph>
 
                 <Paragraph TextAlignment="Center">
@@ -28,27 +28,27 @@
 
                 <Paragraph TextAlignment="Center">
                     <TextBlock Text="Состав заказа: "/>
-                    <TextBlock Text=""/>
+                    <TextBlock x:Name="txtProductList"/>
                 </Paragraph>
 
                 <Paragraph TextAlignment="Center">
                     <TextBlock Text="Сумма заказа: "/>
-                    <TextBlock Text=""/>
+                    <TextBlock x:Name="txtCost"/>
                 </Paragraph>
 
                 <Paragraph TextAlignment="Center">
                     <TextBlock Text="Сумма скидки: "/>
-                    <TextBlock Text=""/>
+                    <TextBlock x:Name="txtDiscountSum"/>
                 </Paragraph>
 
                 <Paragraph TextAlignment="Center">
                     <TextBlock Text="Пункт выдачи: "/>
-                    <TextBlock Text="{Binding OrderPickupPoint.Address}"/>
+                    <TextBlock x:Name="txtPickupPoint"/>
                 </Paragraph>
 
                 <Paragraph TextAlignment="Center" FontWeight="Bold">
                     <TextBlock Text="Код получения: " FontSize="20"/>
-                    <TextBlock Text="" FontSize="20"/>
+                    <TextBlock Text="{Binding ReceiptCode}" FontSize="20"/>
                 </Paragraph>
             </FlowDocument>
         </FlowDocumentScrollViewer>

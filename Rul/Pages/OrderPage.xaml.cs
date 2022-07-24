@@ -73,7 +73,7 @@ namespace Rul.Pages
                 
                 RulEntities.GetContext().SaveChanges();
                 MessageBox.Show("Заказ оформлен!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
-                NavigationService.Navigate(new OrderTicketPage());
+                NavigationService.Navigate(new OrderTicketPage(newOrder, productList));
             }
             catch(Exception ex)
             {

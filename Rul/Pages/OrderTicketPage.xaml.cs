@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Rul.Entities;
+using Rul.Pages;
 
 namespace Rul.Pages
 {
@@ -20,9 +22,26 @@ namespace Rul.Pages
     /// </summary>
     public partial class OrderTicketPage : Page
     {
-        public OrderTicketPage()
+        List<Product> productList = new List<Product>();
+        public OrderTicketPage(Order currnetOrder, List<Product> products)
         {
             InitializeComponent();
+
+            productList = products;
+            DataContext = currnetOrder;
+
+            txtPickupPoint.Text = currnetOrder.PickupPoint.Address;
+
+            var result = "";
+            foreach (var pl in productList)
+                result += (result == "" ? "" : ", ") + pl.ProductName.ToString();
+            txtProductList.Text = result.ToString();
+
+            var total = productList.Sum(p => Convert.ToDouble(p.ProductCost) - Convert.ToDouble(p.ProductCost) * Convert.ToDouble(p.ProductDiscountAmount / 100.00));
+            txtCost.Text = total.ToString() + " рублей";
+
+            var discountSum = productList.Sum(p => p.ProductDiscountAmount);
+            txtDiscountSum.Text = discountSum.ToString() + " %";
         }
     }
 }
