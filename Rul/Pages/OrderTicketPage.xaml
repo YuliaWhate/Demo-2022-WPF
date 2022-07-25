@@ -14,44 +14,39 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         
-       <FlowDocumentScrollViewer Grid.Row="0">
-            <FlowDocument>
-                <Paragraph TextAlignment="Center">
-                    <TextBlock Text="Дата заказа: "/>
-                    <TextBlock Text="{Binding OrderDate}"/>
-                </Paragraph>
+       <DocumentViewer Grid.Row="0" x:Name="documentViewer">
+            <FixedDocument>
+                <PageContent>
+                    <FixedPage>
+                        <StackPanel HorizontalAlignment="Center">
+                            <TextBlock Text="Дата заказа: "/>
+                            <TextBlock Text="{Binding OrderDate}"/>
+                            
+                            <TextBlock Text="Номер заказа: "/>
+                            <TextBlock Text="{Binding OrderID}"/>
+                            
+                            <TextBlock Text="Состав заказа: "/>
+                            <TextBlock x:Name="txtProductList"/>
+                            
+                            <TextBlock Text="Сумма заказа: "/>
+                            <TextBlock x:Name="txtCost"/>
+                            
+                            <TextBlock Text="Сумма скидки: "/>
+                            <TextBlock x:Name="txtDiscountSum"/>
+                            
+                            <TextBlock Text="Пункт выдачи: "/>
+                            <TextBlock x:Name="txtPickupPoint"/>
 
-                <Paragraph TextAlignment="Center">
-                    <TextBlock Text="Номер заказа: "/>
-                    <TextBlock Text="{Binding OrderID}"/>
-                </Paragraph>
+                            <TextBlock Text="Дата выдачи: "/>
+                            <TextBlock Text="{Binding OrderDeliveryDate}"/>
 
-                <Paragraph TextAlignment="Center">
-                    <TextBlock Text="Состав заказа: "/>
-                    <TextBlock x:Name="txtProductList"/>
-                </Paragraph>
-
-                <Paragraph TextAlignment="Center">
-                    <TextBlock Text="Сумма заказа: "/>
-                    <TextBlock x:Name="txtCost"/>
-                </Paragraph>
-
-                <Paragraph TextAlignment="Center">
-                    <TextBlock Text="Сумма скидки: "/>
-                    <TextBlock x:Name="txtDiscountSum"/>
-                </Paragraph>
-
-                <Paragraph TextAlignment="Center">
-                    <TextBlock Text="Пункт выдачи: "/>
-                    <TextBlock x:Name="txtPickupPoint"/>
-                </Paragraph>
-
-                <Paragraph TextAlignment="Center" FontWeight="Bold">
-                    <TextBlock Text="Код получения: " FontSize="20"/>
-                    <TextBlock Text="{Binding ReceiptCode}" FontSize="20"/>
-                </Paragraph>
-            </FlowDocument>
-        </FlowDocumentScrollViewer>
-        <Button x:Name="btnSaveDocument" Grid.Row="1" Content="Сохранить в PDF" Width="150"/>
+                            <TextBlock Text="Код получения: " FontSize="20"/>
+                            <TextBlock Text="{Binding ReceiptCode}" FontSize="20"/>
+                        </StackPanel>
+                    </FixedPage>
+                </PageContent>
+            </FixedDocument>
+        </DocumentViewer>
+        <Button x:Name="btnSaveDocument" Grid.Row="1" Content="Сохранить в PDF" Width="150" Click="btnSaveDocument_Click"/>
     </Grid>
 </Page>

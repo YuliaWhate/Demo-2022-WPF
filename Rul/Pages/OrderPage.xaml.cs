@@ -4,6 +4,8 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Rul.Entities;
+using System.IO;
+using System.Text;
 
 namespace Rul.Pages
 {
@@ -46,6 +48,12 @@ namespace Rul.Pages
             else
                 date = date.AddDays(3);
 
+            if (cmbPickupPoint.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите пункт выдачи!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+                
             try
             {
                 Order newOrder = new Order()
@@ -83,7 +91,8 @@ namespace Rul.Pages
 
         private void btnDeleteProduct_Click(object sender, RoutedEventArgs e)
         {
-            productList.Remove(lViewOrder.SelectedItem as Product);
+            if(MessageBox.Show("Вы уверены, что хотите удалить этот элемент?", "Предупреждение", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                productList.Remove(lViewOrder.SelectedItem as Product);
         }
     }
 }
