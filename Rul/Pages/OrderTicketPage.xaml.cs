@@ -41,7 +41,7 @@ namespace Rul.Pages
             if (pd.ShowDialog() == true)
             {
                 IDocumentPaginatorSource idp = flowDoc;
-                pd.PrintDocument(idp.DocumentPaginator, Title);
+                pd.PrintDocument(idp.DocumentPaginator, "Ticket");
 
             }
         }
