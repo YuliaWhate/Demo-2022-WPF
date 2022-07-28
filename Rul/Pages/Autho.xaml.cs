@@ -105,6 +105,9 @@ namespace Rul.Pages
                 case "Клиент":
                     NavigationService.Navigate(new Client(user)); //Если роль пользователя "Клиент", переходим на страницу клиента
                     break;
+                case "Менеджер":
+                    NavigationService.Navigate(new Client(user));
+                    break;
             }
         }
     }
