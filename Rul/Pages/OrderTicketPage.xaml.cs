@@ -4,11 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
-using System.Windows.Xps.Packaging;
-using Microsoft.Win32;
 using Rul.Entities;
-using System.Windows.Xps;
-using System.IO;
 
 namespace Rul.Pages
 {
