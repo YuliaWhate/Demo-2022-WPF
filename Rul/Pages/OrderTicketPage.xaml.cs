@@ -41,14 +41,12 @@ namespace Rul.Pages
 
         private void btnSaveDocument_Click(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "XPS Files (*.xps)|*.xps";
-            if (sfd.ShowDialog() == true)
+            PrintDialog pd = new PrintDialog();
+            if (pd.ShowDialog() == true)
             {
-                XpsDocument doc = new XpsDocument(sfd.FileName, FileAccess.Write);
-                XpsDocumentWriter writer = XpsDocument.CreateXpsDocumentWriter(doc);
-                writer.Write(documentViewer.Document as FixedDocument);
-                doc.Close();
+                IDocumentPaginatorSource idp = flowDoc;
+                pd.PrintDocument(idp.DocumentPaginator, Title);
+
             }
         }
     }

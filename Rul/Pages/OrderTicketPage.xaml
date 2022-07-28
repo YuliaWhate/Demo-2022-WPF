@@ -14,10 +14,9 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         
-       <DocumentViewer Grid.Row="0" x:Name="documentViewer">
-            <FixedDocument>
-                <PageContent>
-                    <FixedPage>
+       <FlowDocumentReader Grid.Row="0">
+            <FlowDocument Name="flowDoc">
+                <BlockUIContainer>
                         <StackPanel HorizontalAlignment="Center">
                             <TextBlock Text="Дата заказа: "/>
                             <TextBlock Text="{Binding OrderDate}"/>
@@ -43,10 +42,9 @@
                             <TextBlock Text="Код получения: " FontSize="20"/>
                             <TextBlock Text="{Binding ReceiptCode}" FontSize="20"/>
                         </StackPanel>
-                    </FixedPage>
-                </PageContent>
-            </FixedDocument>
-        </DocumentViewer>
+                    </BlockUIContainer>
+            </FlowDocument>
+        </FlowDocumentReader>
         <Button x:Name="btnSaveDocument" Grid.Row="1" Content="Сохранить в PDF" Width="150" Click="btnSaveDocument_Click"/>
     </Grid>
 </Page>
