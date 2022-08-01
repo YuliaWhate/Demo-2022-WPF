@@ -1,0 +1,72 @@
+﻿<Page x:Class="Rul.Pages.AddEditProductPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rul.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEditProductPage">
+    <ScrollViewer>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="Артикул:"/>
+                <TextBox Name="txtArticle"/>
+            
+                <TextBlock Text="Наименование:"/>
+                <TextBox Name="txtTitle"/>
+            
+                <TextBlock Text="Категория:"/>
+                <ComboBox Name="cmbCategory"/>
+
+                <TextBlock Text="Количество на складе:"/>
+                <TextBox Name="txtCountInStock"/>
+
+                <TextBlock Text="Единица измерения:"/>
+                <ComboBox Name="cmbUnit"/>
+
+                <TextBlock Text="Количество в упаковке:"/>
+                <TextBox Name="txtCountInPack"/>
+
+                <TextBlock Text="Минимальное количество:"/>
+                <TextBox Name="txtMinCount"/>
+
+                <TextBlock Text="Поставщик:"/>
+                <TextBox Name="txtSupplier"/>
+
+                <TextBlock Text="Размер максимальной скидки:"/>
+                <TextBox Name="txtMaxDiscount"/>
+
+                <TextBlock Text="Размер действующей скидки:"/>
+                <TextBox Name="txtDiscount"/>
+
+                <TextBlock Text="Стоимость за единицу:"/>
+                <TextBox Name="txtCost"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <Image Width="100" Height="100"/>
+                        <Button Name="btnEnterImage" Content="Выбрать фото"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="50 0 0 0">
+                        <TextBlock Text="Описание:"/>
+                        <TextBlock Name="txtDescription" />
+                    </StackPanel>
+                </StackPanel>
+                
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button Name="btnDeleteProduct" Content="Удалить материал" Width="200"/>
+                    <Button Name="btnSaveProduct" Content="Сохранить" Width="200"/>
+                </StackPanel>
+            </StackPanel>
+            
+        </Grid>
+    </ScrollViewer>
+</Page>
