@@ -17,56 +17,55 @@
 
             <StackPanel Grid.Column="1">
                 <TextBlock Text="Артикул:"/>
-                <TextBox Name="txtArticle"/>
+                <TextBox Name="txtArticle" Text="{Binding ProductArticleNumber}"/>
             
                 <TextBlock Text="Наименование:"/>
-                <TextBox Name="txtTitle"/>
+                <TextBox Name="txtTitle" Text="{Binding ProductName}"/>
             
                 <TextBlock Text="Категория:"/>
-                <ComboBox Name="cmbCategory"/>
+                <ComboBox Name="cmbCategory" SelectedItem="{Binding ProductCategory}"/>
 
                 <TextBlock Text="Количество на складе:"/>
-                <TextBox Name="txtCountInStock"/>
+                <TextBox Name="txtCountInStock" Text="{Binding ProductQuantityInStock}"/>
 
                 <TextBlock Text="Единица измерения:"/>
-                <ComboBox Name="cmbUnit"/>
+                <TextBox Name="txtUnit" Text="{Binding Unit}"/>
 
                 <TextBlock Text="Количество в упаковке:"/>
-                <TextBox Name="txtCountInPack"/>
+                <TextBox Name="txtCountInPack" Text="{Binding CountInPack}"/>
 
                 <TextBlock Text="Минимальное количество:"/>
-                <TextBox Name="txtMinCount"/>
+                <TextBox Name="txtMinCount" Text="{Binding MinCount}"/>
 
                 <TextBlock Text="Поставщик:"/>
-                <TextBox Name="txtSupplier"/>
+                <TextBox Name="txtSupplier" Text="{Binding Supplier}"/>
 
                 <TextBlock Text="Размер максимальной скидки:"/>
-                <TextBox Name="txtMaxDiscount"/>
+                <TextBox Name="txtMaxDiscount" Text="{Binding MaxDiscountAmount}"/>
 
                 <TextBlock Text="Размер действующей скидки:"/>
-                <TextBox Name="txtDiscount"/>
+                <TextBox Name="txtDiscount" Text="{Binding ProductDiscountAmount}"/>
 
                 <TextBlock Text="Стоимость за единицу:"/>
-                <TextBox Name="txtCost"/>
+                <TextBox Name="txtCost" Text="{Binding ProductCost}"/>
 
                 <StackPanel Orientation="Horizontal">
                     <StackPanel>
                         <Image Width="100" Height="100"/>
-                        <Button Name="btnEnterImage" Content="Выбрать фото"/>
+                        <Button Name="btnEnterImage" Content="Выбрать фото" Click="btnEnterImage_Click"/>
                     </StackPanel>
 
                     <StackPanel Margin="50 0 0 0">
                         <TextBlock Text="Описание:"/>
-                        <TextBlock Name="txtDescription" />
+                        <TextBox Name="txtDescription" Text="{Binding ProductDescription}" Height="100" Width="300" TextWrapping="Wrap"/>
                     </StackPanel>
                 </StackPanel>
                 
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                    <Button Name="btnDeleteProduct" Content="Удалить материал" Width="200"/>
-                    <Button Name="btnSaveProduct" Content="Сохранить" Width="200"/>
+                    <Button Name="btnDeleteProduct" Content="Удалить материал" Width="200" Visibility="Collapsed" Click="btnDeleteProduct_Click"/>
+                    <Button Name="btnSaveProduct" Content="Сохранить" Width="200" Click="btnSaveProduct_Click"/>
                 </StackPanel>
             </StackPanel>
-            
         </Grid>
     </ScrollViewer>
 </Page>

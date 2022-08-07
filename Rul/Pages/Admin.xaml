@@ -43,7 +43,7 @@
         </StackPanel>
 
 
-        <ListView Name="LViewProduct" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="2" Margin="5,5,5,5" d:ItemsSource="{d:SampleData ItemCount=1}">
+        <ListView Name="LViewProduct" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="2" Margin="5,5,5,5" d:ItemsSource="{d:SampleData ItemCount=1}" MouseDoubleClick="LViewProduct_MouseDoubleClick">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>

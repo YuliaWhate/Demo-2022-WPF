@@ -117,7 +117,12 @@ namespace Rul.Pages
 
         private void btnAddNewProduct_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddEditProductPage());
+            NavigationService.Navigate(new AddEditProductPage(null));
+        }
+
+        private void LViewProduct_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new AddEditProductPage(LViewProduct.SelectedItem as Product));
         }
     }
 }
