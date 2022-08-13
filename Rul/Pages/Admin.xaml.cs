@@ -124,5 +124,15 @@ namespace Rul.Pages
         {
             NavigationService.Navigate(new AddEditProductPage(LViewProduct.SelectedItem as Product));
         }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                RulEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                LViewProduct.ItemsSource = RulEntities.GetContext().Product.ToList();
+
+            }
+        }
     }
 }

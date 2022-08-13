@@ -3,10 +3,17 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Rul.Pages"
+      xmlns:local="clr-namespace:Rul.Pages" xmlns:sys="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddEditProductPage">
+
+    <Page.Resources>
+        <sys:String x:Key="defaultImage">
+            pack://application:,,,/Resources/picture.png
+        </sys:String>
+    </Page.Resources>
+
     <ScrollViewer>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -51,7 +58,7 @@
 
                 <StackPanel Orientation="Horizontal">
                     <StackPanel>
-                        <Image Width="100" Height="100"/>
+                        <Image x:Name="img" Width="100" Height="100" Source="{Binding ImgPath, FallbackValue={StaticResource defaultImage}}"/>
                         <Button Name="btnEnterImage" Content="Выбрать фото" Click="btnEnterImage_Click"/>
                     </StackPanel>
 

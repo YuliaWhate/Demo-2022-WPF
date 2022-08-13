@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Rul.Pages" xmlns:sys="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Admin">
+      Title="Admin" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Page.Resources>
         <sys:String x:Key="defaultImage">

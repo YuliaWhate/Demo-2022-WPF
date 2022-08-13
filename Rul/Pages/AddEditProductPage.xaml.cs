@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Microsoft.Win32;
 using Rul.Entities;
 
@@ -29,12 +20,13 @@ namespace Rul.Pages
 
             if(currentProduct != null)
             {
-                product = currentProduct;
-
-                btnDeleteProduct.Visibility = Visibility.Visible;
+                product = currentProduct;                               //Если переданный объект с прошлой страницы не пустой, тогда добавляем его в созданный.
+                                                                        
+                btnDeleteProduct.Visibility = Visibility.Visible;      //Показываем кнопку удаления
+                txtArticle.IsEnabled = false;                         //Запрещаем редактирования артикула
             }
             DataContext = product;
-            cmbCategory.ItemsSource = CategoryList;
+            cmbCategory.ItemsSource = CategoryList; //Передаем список в ресурсы ComboBox'а
             
         }
 
@@ -50,12 +42,27 @@ namespace Rul.Pages
 
         private void btnSaveProduct_Click(object sender, RoutedEventArgs e)
         {
+            StringBuilder errors = new StringBuilder();
+
+            if (product.ProductCost < 0)
+                errors.AppendLine("Стоимость не может быть отрицательной!");
+            if(product.MinCount < 0)
+                errors.AppendLine("Минимальное количество не может быть отрицательным!");                       //Прописываем проверки по заданию
+            if (product.ProductDiscountAmount > product.MaxDiscountAmount)
+                errors.AppendLine("Действующая скидка на товар не может быть больше максимальной скидки!");
+
+            if(errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString());
+                return;
+            }
+
             if (product.ProductArticleNumber == null)
                 RulEntities.GetContext().Product.Add(product);
             try
             {
                 RulEntities.GetContext().SaveChanges();
-                MessageBox.Show("Информация сохранена!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Информация сохранена!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);   //Сохраняем данные в БД
                 NavigationService.GoBack();
             }
             catch (Exception ex)
@@ -87,11 +94,10 @@ namespace Rul.Pages
             OpenFileDialog GetImageDialog = new OpenFileDialog();
 
             GetImageDialog.Filter = "Файлы изображений: (*.png, *.jpg, *.jpeg)| *.png; *.jpg; *.jpeg";
-            GetImageDialog.InitialDirectory = Environment.CurrentDirectory;
+            GetImageDialog.InitialDirectory = "C:\\Users\\yulia\\Desktop\\Rul\\Rul\\Resources";
             if (GetImageDialog.ShowDialog() == true)
             {
-                product.ProductImage = GetImageDialog.FileName.Substring(Environment.CurrentDirectory.Length);
-
+                product.ProductImage = GetImageDialog.SafeFileName;
             }
         }
     }
